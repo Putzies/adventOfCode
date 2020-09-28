@@ -24,20 +24,19 @@ const criteriaWithinRange = (number, min, max) => {
 }
 
 const criteriaContainsDuplicates = digits => {
-    return digits.some((a, i, array) => {
+    return digits.some((curr, i, array) => {
         if (i > 0) {
-            return array[i - 1] === a;
+            return array[i - 1] === curr;
         }
         return false;
     })
 }
 
 const criteriaNoneDecreasingDigits = digits => {
-    return digits.every((a, i, array) => {
-        return i === 0 || array[i - 1] <= a;
+    return digits.every((curr, i, array) => {
+        return i === 0 || array[i - 1] <= curr;
     })
 }
-
 
 const meetsCritera = (number, min, max) => {
     const digits = splitDigits(number);
